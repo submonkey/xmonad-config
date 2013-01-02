@@ -43,7 +43,7 @@ myFocusedBorderColor        = "#0088CC"
 myBorderWidth               = 1
 myModMask                   = controlMask
 myTerminal                  = "xterm"
-myWorkspaces                = ["\10102Term \11137","2:Web \11137","3:Code \11137","4 \11137","5 \11137","6 \11137","7 \11137","8:Read \11137","9:Chat \11137"]
+myWorkspaces                = ["1:Term \11137","2:Web \11137","3:Code \11137","4 \11137","5 \11137","6 \11137","7 \11137","8:Read \11137","9:Chat \11137"]
 
 myManageHook                = composeAll
     [ className             =? "Pidgin"         --> doShift "9:Chat \11137"
@@ -52,7 +52,7 @@ myManageHook                = composeAll
     , className             =? "Eclipse"        --> doShift "3:Code \11137"
     ]
 
-myLayoutHook                = onWorkspace "\10102Term \11137" gridLayout $ onWorkspace "2:Web \11137" webLayout $ onWorkspace "8:Read \11137" tabbedLayout $  onWorkspace "9:Chat \11137" chatLayout $ defaultLayout
+myLayoutHook                = onWorkspace "1:Term \11137" gridLayout $ onWorkspace "2:Web \11137" webLayout $ onWorkspace "8:Read \11137" tabbedLayout $  onWorkspace "9:Chat \11137" chatLayout $ defaultLayout
     where
         defaultLayout       = avoidStruts ( tall ||| Mirror tall ||| Full )
             where 
