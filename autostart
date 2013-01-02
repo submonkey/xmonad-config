@@ -1,0 +1,40 @@
+#!/bin/bash 
+
+xrdb -merge ~/.obresources &
+xmodmap ~/.Xmodmap &
+# systemd --user &
+# xrdb -merge ~/.obresources &
+hsetroot -fill ~/Pictures/free.jpg &
+# compton -cCfF -t-5 -e 0.6 -o 0.5 -D6 &
+# parcellite &
+# trayer --SetDockType true --SetPartialStrut true --transparent true --alpha 0 --tint 0x333333 --edge top --align right --widthtype pixel --heighttype pixel --width 60 --height 16 &
+# mpc pause &
+
+if pgrep -u icub systemd &> /dev/null;
+then
+    echo alive &> /dev/null 
+    mpc pause &
+else
+    systemd --user &
+fi
+
+if pgrep -u icub compton &> /dev/null;
+then 
+    echo alive &> /dev/null 
+else
+    compton -cCfF -t-5 -e 0.6 -o 0.5 -D6 &
+fi
+
+if pgrep -u icub trayer &> /dev/null;
+then 
+    echo alive &> /dev/null 
+else
+    trayer --SetDockType true --SetPartialStrut true --transparent true --alpha 0 --tint 0x333333 --edge top --align right --widthtype pixel --heighttype pixel --width 60 --height 16 &
+fi 
+
+if pgrep -u icub parcellite &> /dev/null;
+then 
+    echo alive &> /dev/null 
+else 
+    parcellite &
+fi 
